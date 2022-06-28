@@ -28,7 +28,7 @@ import java.util.Map;
 public class MainActivity extends AppCompatActivity {
 
     EditText edtID, edtMAC, edtTotal, edtParcial, edtOffset;
-    Button btnAgregar, btnBuscar;
+    Button btnAgregar, btnBuscar, btnEditar, btnEliminar;
 
     RequestQueue requestQueue;
 
@@ -51,6 +51,18 @@ public class MainActivity extends AppCompatActivity {
                 buscarProducto("http://192.168.1.4:8080/ejemplocrud/buscar.php?ID="+edtID.getText()+"");
             }
         });
+        btnEditar.setOnClickListener((new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ejecutarServicio("http://192.168.1.4:8080/ejemplocrud/editar.php");
+            }
+        }));
+        btnEliminar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
     }
     public void relacionamosVistas() {  //Vinculamos con nuestros controles del layout.
@@ -62,6 +74,8 @@ public class MainActivity extends AppCompatActivity {
 
         btnAgregar=(Button)findViewById(R.id.Agregar);
         btnBuscar=(Button)findViewById(R.id.Buscar);
+        btnEditar=(Button)findViewById(R.id.Editar);
+        btnEliminar=(Button)findViewById(R.id.Eliminar);
     }
     //Método que enviará las peticiones al servidor
     private void ejecutarServicio(String URL) {
