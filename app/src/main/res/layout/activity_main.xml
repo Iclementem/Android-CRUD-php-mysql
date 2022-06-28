@@ -31,7 +31,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="ID"
+            android:hint="ID"
             android:gravity="center_horizontal"/>
 
         <EditText
@@ -41,7 +41,7 @@
             android:ems="10"
             android:inputType="textPersonName"
             android:minHeight="48dp"
-            android:text="MAC"
+            android:hint="MAC"
             android:gravity="center_horizontal"/>
 
         <EditText
@@ -51,7 +51,7 @@
             android:ems="10"
             android:inputType="textPersonName"
             android:gravity="center_horizontal"
-            android:text="Total:" />
+            android:hint="Total:" />
 
         <EditText
             android:id="@+id/Parcial"
@@ -60,7 +60,7 @@
             android:ems="10"
             android:inputType="textPersonName"
             android:gravity="center_horizontal"
-            android:text="Parcial:" />
+            android:hint="Parcial:" />
 
         <EditText
             android:id="@+id/Offset"
@@ -69,7 +69,7 @@
             android:ems="10"
             android:inputType="textPersonName"
             android:gravity="center_horizontal"
-            android:text="Offset:" />
+            android:hint="Offset:" />
 
 
         <LinearLayout
