@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
         btnEliminar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                eliminarProducto("http://192.168.1.4:8080/ejemplocrud/eliminar.php");
             }
         });
 
@@ -134,6 +134,39 @@ public class MainActivity extends AppCompatActivity {
         });
         requestQueue=Volley.newRequestQueue(this);
         requestQueue.add(jsonArrayRequest);
+    }
+    private void eliminarProducto(String URL) {
+        StringRequest stringRequest=new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() { //mandamos petición
+            @Override
+            public void onResponse(String response) {
+                Toast.makeText(getApplicationContext(), "REGISTRO ELIMINADO", Toast.LENGTH_SHORT).show();
+                limpiarFormulario();
+            }
+        }, new Response.ErrorListener() { //En caso de error
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getApplicationContext(), error.toString(), Toast.LENGTH_SHORT).show();
+            }
+        }) {
+            @Nullable
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError { //Utilizamos el método POST por lo que hay qye indicar los parametros que enviamos al servidor
+                Map<String,String> parametros= new HashMap<String, String>();
+                parametros.put("ID",edtID.getText().toString());
+                return parametros;
+            }
+        };
+        //procesamos las peticiones para que la librería se encarge de ejecutarlas
+        requestQueue= Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
+    }
+
+    private void limpiarFormulario() {
+        edtID.setText("");
+        edtMAC.setText("");
+        edtTotal.setText("");
+        edtParcial.setText("");
+        edtOffset.setText("");
     }
 }
 
