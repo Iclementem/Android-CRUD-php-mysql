@@ -7,9 +7,9 @@ $consulta = "SELECT * FROM vidrio WHERE ID = '$ID'";
 $resultado = $conexion -> query($consulta);
 
 while ($fila=$resultado -> fetch_array()) {
-    $ID[] = array_map('utf8_encode', $fila);
+    $informacion[] = array_map('utf8_encode', $fila);
 }
-echo json_encode(value)
+echo json_encode($informacion);
 $resultado -> close();
 
 
